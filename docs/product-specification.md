@@ -93,8 +93,6 @@ The project is useful rather than purely technical when it demonstrates a workfl
 
 ## Credibility requirements
 
-Recruiters should be able to find evidence of:
-
 - precise scope control;
 - protocol-correct MCP client and server behavior;
 - state machines and concurrency handling;
