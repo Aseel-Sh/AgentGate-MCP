@@ -32,7 +32,7 @@ The first release will demonstrate:
 - idempotent background execution;
 - append-only, tamper-evident audit records;
 - correlated execution traces;
-- a small Razor Pages management UI;
+- a React and TypeScript management application;
 - deterministic protocol, security, reliability, and agent-behavior evaluations.
 
 ## Product boundary
@@ -41,7 +41,9 @@ AgentGate is an **MCP server upstream**, an **MCP client downstream**, and a **p
 
 ```mermaid
 flowchart LR
-    A[AI Agent] -->|Streamable HTTP MCP| G[AgentGate]
+    A[AI Agent] -->|Streamable HTTP MCP| G[AgentGate API]
+    U[Admin / Approver / Viewer] -->|HTTPS| R[React Web App]
+    R -->|REST API| G
     G --> I[Identity and Session]
     G --> P[Deterministic Policy Engine]
     P -->|Allow| E[Controlled Executor]
@@ -67,14 +69,16 @@ flowchart LR
 ## Architecture decisions
 
 - **Modular monolith**, not microservices.
-- **.NET 10 and ASP.NET Core**.
+- **.NET 10 and ASP.NET Core** for the API, MCP gateway, workers, and domain logic.
+- **React, TypeScript, and Vite** for the management application.
+- The React app uses normal REST endpoints; agents use the separate MCP endpoint.
+- The production build is served by ASP.NET Core so the MVP remains one deployable application.
 - Official **MCP C# SDK** for client and server behavior.
 - **Streamable HTTP only** for the MVP.
 - **PostgreSQL and EF Core** for durable state.
 - PostgreSQL-backed execution leases instead of RabbitMQ, Kafka, or Redis.
-- **Razor Pages** for the management UI.
 - **OpenTelemetry** for operational traces and metrics.
-- **xUnit, Testcontainers, Playwright, and GitHub Actions** for testing.
+- **xUnit, Testcontainers, Vitest, React Testing Library, Playwright, and GitHub Actions** for testing.
 - Microsoft Agent Framework is used by the demo agent, not by the authorization core.
 
 ## Documentation
@@ -83,6 +87,7 @@ Start with the [documentation index](docs/README.md).
 
 - [Product specification](docs/product-specification.md)
 - [Architecture](docs/architecture.md)
+- [MCP compatibility baseline](docs/mcp-compatibility.md)
 - [MVP scope](docs/mvp-scope.md)
 - [Demonstration workflows](docs/demonstration-workflows.md)
 - [Policy design](docs/policy-design.md)
@@ -108,6 +113,7 @@ The first release will not include:
 - microservices or Kubernetes;
 - real email delivery;
 - billing or full SaaS tenant administration;
+- a separate frontend deployment;
 - claims of complete enterprise security or complete MCP OAuth conformance.
 
 ## Success criteria
@@ -119,7 +125,7 @@ The MVP is complete when a seeded agent can:
 3. submit a destructive action for approval;
 4. execute the exact approved arguments once;
 5. fail when attempting argument tampering, replay, or direct downstream bypass;
-6. display a complete trace and verifiable audit timeline;
+6. display a complete trace and verifiable audit timeline in the React UI;
 7. run a deterministic evaluation suite proving the expected behavior.
 
 ## Research baseline
