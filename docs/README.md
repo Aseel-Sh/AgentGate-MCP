@@ -6,17 +6,18 @@ This directory contains the planning and design documents for AgentGate MCP. The
 
 1. [Product specification](product-specification.md) — problem, users, product boundary, success criteria, and limitations.
 2. [Architecture](architecture.md) — components, request flow, service boundaries, and sequence diagrams.
-3. [MVP scope](mvp-scope.md) — required features, deferred work, and explicit exclusions.
-4. [Demonstration workflows](demonstration-workflows.md) — five sandboxed tools and the behavior each proves.
-5. [Policy design](policy-design.md) — policy structure, precedence, transformations, and approval rules.
-6. [Domain model](domain-model.md) — entities, state machines, relationships, and sensitive-data handling.
-7. [Threat model](threat-model.md) — realistic attack scenarios, mitigations, tests, and limitations.
-8. [Reliability model](reliability-model.md) — failure handling, idempotency, retries, leases, and recovery.
-9. [Evaluation and testing](evaluation-and-testing.md) — software tests, MCP protocol tests, security tests, and agent evaluations.
-10. [Observability and performance](observability-and-performance.md) — logs, metrics, traces, load tests, and honest reporting.
-11. [Implementation roadmap](implementation-roadmap.md) — ordered phases, dependencies, tests, and definitions of done.
-12. [Demo plan](demo-plan.md) — deterministic seed data, scripts, and a five-minute demo storyline.
-13. [Architecture decision records](adr/README.md) — important choices and their tradeoffs.
+3. [MCP compatibility baseline](mcp-compatibility.md) — pinned protocol and SDK versions, supported capabilities, and the approval-pending result contract.
+4. [MVP scope](mvp-scope.md) — required features, deferred work, and explicit exclusions.
+5. [Demonstration workflows](demonstration-workflows.md) — five sandboxed tools and the behavior each proves.
+6. [Policy design](policy-design.md) — policy structure, precedence, transformations, and approval rules.
+7. [Domain model](domain-model.md) — entities, state machines, relationships, and sensitive-data handling.
+8. [Threat model](threat-model.md) — realistic attack scenarios, mitigations, tests, and limitations.
+9. [Reliability model](reliability-model.md) — failure handling, idempotency, retries, leases, and recovery.
+10. [Evaluation and testing](evaluation-and-testing.md) — software tests, MCP protocol tests, security tests, and agent evaluations.
+11. [Observability and performance](observability-and-performance.md) — logs, metrics, traces, load tests, and honest reporting.
+12. [Implementation roadmap](implementation-roadmap.md) — ordered phases, dependencies, tests, and definitions of done.
+13. [Demo plan](demo-plan.md) — deterministic seed data, scripts, and a five-minute demo storyline.
+14. [Architecture decision records](adr/README.md) — important choices and their tradeoffs.
 
 ## Development rule
 
