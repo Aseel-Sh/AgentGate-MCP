@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - issue-2-solution-ci
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.201
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: src/AgentGate.Web/package-lock.json
+
+      - name: Restore .NET dependencies
+        run: dotnet restore AgentGate.slnx
+
+      - name: Verify .NET formatting
+        run: dotnet format AgentGate.slnx --verify-no-changes --no-restore
+
+      - name: Build .NET solution
+        run: dotnet build AgentGate.slnx --configuration Release --no-restore
+
+      - name: Run .NET tests
+        run: dotnet test AgentGate.slnx --configuration Release --no-build
+
+      - name: Install frontend dependencies
+        working-directory: src/AgentGate.Web
+        run: npm ci
+
+      - name: Lint frontend
+        working-directory: src/AgentGate.Web
+        run: npm run lint
+
+      - name: Type-check frontend
+        working-directory: src/AgentGate.Web
+        run: npm run typecheck
+
+      - name: Test frontend
+        working-directory: src/AgentGate.Web
+        run: npm run test:run
+
+      - name: Build frontend
+        working-directory: src/AgentGate.Web
+        run: npm run build
+
+      - name: Publish full application
+        run: dotnet publish src/AgentGate.App/AgentGate.App.csproj --configuration Release --output artifacts/publish
+
+      - name: List published web assets
+        run: ls -la artifacts/publish/wwwroot
