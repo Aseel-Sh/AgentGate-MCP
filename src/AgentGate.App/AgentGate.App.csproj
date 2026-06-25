@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\AgentGate.Core\AgentGate.Core.csproj" />
+    <ProjectReference Include="..\AgentGate.Infrastructure\AgentGate.Infrastructure.csproj" />
+    <ProjectReference Include="..\AgentGate.Mcp\AgentGate.Mcp.csproj" />
+    <ProjectReference Include="..\AgentGate.Policy\AgentGate.Policy.csproj" />
+  </ItemGroup>
+
+
+</Project>

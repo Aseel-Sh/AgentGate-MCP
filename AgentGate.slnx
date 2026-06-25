@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AgentGate.App/AgentGate.App.csproj" />
+    <Project Path="src/AgentGate.Core/AgentGate.Core.csproj" />
+    <Project Path="src/AgentGate.Infrastructure/AgentGate.Infrastructure.csproj" />
+    <Project Path="src/AgentGate.Mcp/AgentGate.Mcp.csproj" />
+    <Project Path="src/AgentGate.Policy/AgentGate.Policy.csproj" />
+  </Folder>
+</Solution>
