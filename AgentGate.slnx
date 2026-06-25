@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AgentGate.App/AgentGate.App.csproj" />
+    <Project Path="src/AgentGate.Core/AgentGate.Core.csproj" />
+    <Project Path="src/AgentGate.Infrastructure/AgentGate.Infrastructure.csproj" />
+    <Project Path="src/AgentGate.Mcp/AgentGate.Mcp.csproj" />
+    <Project Path="src/AgentGate.Policy/AgentGate.Policy.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AgentGate.EvaluationTests/AgentGate.EvaluationTests.csproj" />
+    <Project Path="tests/AgentGate.IntegrationTests/AgentGate.IntegrationTests.csproj" />
+    <Project Path="tests/AgentGate.LoadTests/AgentGate.LoadTests.csproj" />
+    <Project Path="tests/AgentGate.ProtocolTests/AgentGate.ProtocolTests.csproj" />
+    <Project Path="tests/AgentGate.SecurityTests/AgentGate.SecurityTests.csproj" />
+    <Project Path="tests/AgentGate.UnitTests/AgentGate.UnitTests.csproj" />
+  </Folder>
+</Solution>
