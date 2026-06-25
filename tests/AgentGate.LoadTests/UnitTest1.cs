@@ -1,10 +1,10 @@
-﻿namespace AgentGate.LoadTests;
+namespace AgentGate.LoadTests;
 
-public class UnitTest1
+public sealed class SmokeTests
 {
     [Fact]
-    public void Test1()
+    public void TestProjectLoads()
     {
-
+        Assert.True(true);
     }
 }
